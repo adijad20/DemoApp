@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <string name="proximitySensor">Proximity Sensor</string>
+    <string name="lightSensor">Light Sensor</string>
+    <string name="button4">Vibrate</string>
+    <string name="frag_act_button">Sensors data</string>
+    <string name="ringtone_act_button">Ringtones</string>
+    <string name="image_act_button">Gallery</string>
+    <string name="show_sensor">Sensor reading: %1$.2f</string>
+</resources>
