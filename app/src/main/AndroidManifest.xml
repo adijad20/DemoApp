@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FragmentActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".RingtoneActivity" android:parentActivityName=".MainActivity"></activity>
         <receiver android:name=".MyBroadcastReceiver"  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>

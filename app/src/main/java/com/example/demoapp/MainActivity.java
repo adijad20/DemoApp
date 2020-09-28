@@ -25,5 +25,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(fragIntent);
             }
         });
+
+        Button ringtoneButton = findViewById(R.id.ringtone_act_button);
+        ringtoneButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent ringtoneIntent = new Intent(MainActivity.this, RingtoneActivity.class);
+                startActivity(ringtoneIntent);
+            }
+        });
     }
 }
