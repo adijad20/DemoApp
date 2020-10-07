@@ -76,7 +76,6 @@ public class RingtoneActivity extends AppCompatActivity {
             String notificationUri = cursor.getString(RingtoneManager.URI_COLUMN_INDEX) + "/" + cursor.getString(RingtoneManager.ID_COLUMN_INDEX);
             list.put(notificationTitle, notificationUri);
             //RingtoneManager.getRingtone(this, Uri.parse(notificationUri));
-
         }
         return list;
     }

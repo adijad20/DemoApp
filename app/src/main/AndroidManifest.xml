@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.demoapp">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +15,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".EmployeeActivity"></activity>
+        <activity android:name=".ImageFullScreenActivity" />
+        <activity android:name=".GalleryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FragmentActivity" android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".RingtoneActivity" android:parentActivityName=".MainActivity"></activity>
-        <receiver android:name=".MyBroadcastReceiver"  android:exported="true">
+        <activity
+            android:name=".FragmentActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RingtoneActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TabActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".AudioActivity" />
+
+        <receiver
+            android:name=".MyBroadcastReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <service android:name=".LocalService" />
     </application>
 

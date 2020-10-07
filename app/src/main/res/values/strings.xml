@@ -2,9 +2,26 @@
     <string name="app_name">DemoApp</string>
     <string name="proximitySensor">Proximity Sensor</string>
     <string name="lightSensor">Light Sensor</string>
-    <string name="button4">Vibrate</string>
-    <string name="frag_act_button">Sensors data</string>
-    <string name="ringtone_act_button">Ringtones</string>
+    <string name="accelSensor">Accelerometer</string>
+    <string name="magnetSensor">Magnetometer</string>
+    <string name="gyroSensor">Gyroscope</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="frag_act_button">Show sensors </string>
+    <string name="sensor_summary">Get the values of important sensors</string>
+    <string name="ringtone_act_button">Play Music</string>
+    <string name="music_summary">Play ringtones and songs</string>
     <string name="image_act_button">Gallery</string>
-    <string name="show_sensor">Sensor reading: %1$.2f</string>
+    <string name="db_act_button">Employee database</string>
+    <string name="db_act_summary">Add/view employee details</string>
+    <string name="gallery_summary">View the images</string>
+    <string name="intro_text">Select a sensor or press Vibrate!</string>
+    <string name="show_sensor">%1$s sensor reading: %2$.2f</string>
+    <string name="show_dir_sensor">%1$s reading (%2$s direction): %3$.2f</string>
+    <string name="blank"> </string>
+    <string name="employee_name">Enter name</string>
+    <string name="employee_designation">Enter designation</string>
+    <string name="choose_image_button">Pick an Image</string>
+    <string name="add_row">Submit Employee details</string>
+    <string name="get_rows">Get details of all employees</string>
+
 </resources>

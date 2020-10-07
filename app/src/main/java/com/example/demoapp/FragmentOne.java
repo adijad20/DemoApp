@@ -34,6 +34,14 @@ public class FragmentOne extends Fragment implements View.OnClickListener{
         one.setOnClickListener(this);
         Button two = (Button) view.findViewById(R.id.lightSensor);
         two.setOnClickListener(this);
+        Button three = (Button) view.findViewById(R.id.accelSensor);
+        three.setOnClickListener(this);
+        Button four = (Button) view.findViewById(R.id.magnetSensor);
+        four.setOnClickListener(this);
+        Button five = (Button) view.findViewById(R.id.gyroSensor);
+        five.setOnClickListener(this);
+        Button six = (Button) view.findViewById(R.id.vibrate);
+        six.setOnClickListener(this);
         return view;
     }
 
@@ -59,6 +67,18 @@ public class FragmentOne extends Fragment implements View.OnClickListener{
                 String str2 = "Sensor 2 clicked";
                 Log.i("Myactivity","Sensor 2 clicked");
                 callback.onButtonSelected(2);
+                break;
+            case R.id.accelSensor:
+                callback.onButtonSelected(3);
+                break;
+            case R.id.magnetSensor:
+                callback.onButtonSelected(4);
+                break;
+            case R.id.gyroSensor:
+                callback.onButtonSelected(5);
+                break;
+            case R.id.vibrate:
+                callback.onButtonSelected(6);
                 break;
             default:
                 String str_def = "Default string";

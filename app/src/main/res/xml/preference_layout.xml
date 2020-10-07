@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:key="preference_key_1"
+        android:title="@string/frag_act_button"
+        android:summary="@string/sensor_summary"
+        android:icon="@drawable/sensor_icon_foreground"
+        />
+
+    <Preference
+        android:key="preference_key_2"
+        android:title="@string/ringtone_act_button"
+        android:summary="@string/music_summary"
+        android:icon="@drawable/music_icon_foreground"/>
+
+    <Preference
+        android:key="preference_key_3"
+        android:title="@string/image_act_button"
+        android:summary="@string/gallery_summary"
+        android:icon="@drawable/gallery_icon_foreground"/>
+
+    <Preference
+        android:key="preference_key_4"
+        android:title="@string/db_act_button"
+        android:summary="@string/db_act_summary"
+        android:icon="@drawable/db_icon_foreground"/>
+
+</PreferenceScreen>
