@@ -15,7 +15,9 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -44,13 +46,15 @@ public class LocalService extends Service {
             applicationContext = context.getApplicationContext();
         }
 
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void handleMessage(@NonNull Message msg) {
             switch (msg.what){
                 case MSG_GET_ACTIVITY:
-                    Toast.makeText(applicationContext, "hello!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(applicationContext, "hello!", Toast.LENGTH_SHORT).show();
                     String activityName = msg.getData().getString("ActivityName");
-                    Log.i(TAG,activityName);
+                    Log.i(TAG,"Message received: "+activityName);
                     showWindow(activityName, applicationContext);
                     break;
                 default:
@@ -66,6 +70,7 @@ public class LocalService extends Service {
         return mMessenger.getBinder();
     }
 
+    /*
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this, "Local Service started", Toast.LENGTH_SHORT).show();
@@ -74,6 +79,7 @@ public class LocalService extends Service {
         sendNotification();
         return START_NOT_STICKY;
     }
+     */
 
     public int getRandomNumber(){
         return mGenerator.nextInt(100);
@@ -119,19 +125,28 @@ public class LocalService extends Service {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void showWindow(String activityName, Context context){
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        WindowManager.LayoutParams layOutParams = new WindowManager.LayoutParams(
+        final WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+
+        final WindowManager.LayoutParams layOutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSPARENT);
+                PixelFormat.TRANSLUCENT);
 
+        layOutParams.gravity = Gravity.END;
         layOutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        //layOutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
         layOutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         LayoutInflater layOutInflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View viewAboveAllActivities = layOutInflater.inflate(R.layout.activity_flash_alert_layout, null);
+        final View viewAboveAllActivities = layOutInflater.inflate(R.layout.activity_flash_alert_layout, null);
         TextView textView = viewAboveAllActivities.findViewById(R.id.alertView);
-        textView.setText(activityName);
-
+        textView.setText("You are in "+activityName+"\nTouch to dismiss");
+        textView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                windowManager.removeViewImmediate(viewAboveAllActivities);
+                return false;
+            }
+        });
 
         windowManager.addView(viewAboveAllActivities, layOutParams);
     }
